@@ -20,9 +20,7 @@ Weapon[] weapons;
 Missle[] missles;
 Enemy[] enemies;
 PImage heli_img;
-PImage rotor_img;
-PImage rotor_b;
-PImage rotor_c;
+
 
 void setup() {
     fullScreen();
@@ -31,7 +29,7 @@ void setup() {
     rectMode(CENTER);
     strokeJoin(ROUND);
     port = new Serial(this, "COM7", 9600);
-    p1 = new Heli(width / 2,height - 400,0,heli_img,rotor_img,rotor_b,rotor_c);
+    p1 = new Heli(width / 2,height - 400,0);//,heli_img,rotor_img,rotor_b,rotor_c
     p1.setup("image//heli0326.png","image//main_rotor.png","image//main_rotor02.png","image//main_rotor03.png");
     weapons = new Weapon[50];
     missles = new Missle[10];

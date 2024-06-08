@@ -6,14 +6,14 @@ class Heli{
     PImage img,rotor1,rotor2,rotor3;
     //Serial port;
     
-    Heli(float _x,float _y,float _rot,PImage _img,PImage _rotor1,PImage _rotor2,PImage _rotor3) {
+    Heli(float _x,float _y,float _rot) { //,PImage _img,PImage _rotor1,PImage _rotor2,PImage _rotor3
         x = _x;
         y = _y;
         rot = _rot;
-        img = _img;
+        /* img = _img;
         rotor1 = _rotor1;
         rotor2 = _rotor2;
-        rotor3 = _rotor3;
+        rotor3 = _rotor3; */
         //port = _port1;
     }
     
