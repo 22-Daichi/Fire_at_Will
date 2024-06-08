@@ -5,9 +5,9 @@ Heli p1;
 
 int t = 0;
 int battle = 0;
-int weapon_num = 0;
-int missle_num = 0;
-int enemy_number = 20;
+int weapon_num = 0; // 画面上に表示可能な最大の弾の個数
+int missle_num = 0; // 画面上に表示可能な最大のミサイルの個数
+int enemy_number = 20; // 敵の数
 int p1x;
 int p1y;
 int fire_weapon1;
@@ -19,8 +19,6 @@ float time = 0;
 Weapon[] weapons;
 Missle[] missles;
 Enemy[] enemies;
-PImage heli_img;
-
 
 void setup() {
     fullScreen();
@@ -29,7 +27,7 @@ void setup() {
     rectMode(CENTER);
     strokeJoin(ROUND);
     port = new Serial(this, "COM7", 9600);
-    p1 = new Heli(width / 2,height - 400,0);//,heli_img,rotor_img,rotor_b,rotor_c
+    p1 = new Heli(width / 2,height - 400,0);
     p1.setup("image//heli0326.png","image//main_rotor.png","image//main_rotor02.png","image//main_rotor03.png");
     weapons = new Weapon[50];
     missles = new Missle[10];
@@ -40,9 +38,6 @@ void setup() {
         weapons[i] = new Weapon(0,0,0,0,0);
     }
     enemies = new Enemy[enemy_number];
-    for (int i = 0;i < enemy_number;i++) {
-        enemies[i] = new Enemy(1000,0,0,0,heli_img);
-    }
     frameRate(50);
     PFont font = createFont("MS Gothic",50);
     textFont(font);
@@ -52,7 +47,7 @@ void top() {
     p1.x = width / 2;
     p1.y = height - 400;
     for (int i = 0;i < enemy_number;i++) {
-        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,0,heli_img);
+        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,0);
     }
     score = 0;
     time = 0;
@@ -147,7 +142,7 @@ void draw() {
     //time = (floor(time*100))/100;
     text(time,width / 2 + 175,50);
     text(p1x,width / 2 - 125,100);
-    text(p1x,width / 2 + 125,100);
+    text(p1y,width / 2 + 125,100);
     if (score < 20) {
         time += 0.02;
     }

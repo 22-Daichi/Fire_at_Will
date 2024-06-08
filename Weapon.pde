@@ -10,23 +10,23 @@ class Weapon{
     }
     
     
-
+    
     void dis() {
         float ang;
         /* if(abs(wx - tgtx) == 0){
-            ang = PI/2;
-        }else{
-            ang = atan((wy - tgty)/abs(wx - tgtx));
-            } */
         ang = PI/2;
+    }else{
+        ang = atan((wy - tgty)/abs(wx - tgtx));
+        } */
+        ang = PI / 2;
         if (wlife ==  1 && wy > 0) {
             wy -= 10 * sin(ang);
-            wx -= 10 *((wx - tgtx)/(abs(wx - tgtx))) * cos(ang);
+            wx -= 10 * ((wx - tgtx) / (abs(wx - tgtx))) * cos(ang);
             strokeWeight(1);
             fill(234,0,0);
             ellipse(wx,wy - 10,10,10);
         }
-        if (wlife == 0){
+        if (wlife == 0) {
             wx = 0;
             wy = 0;
         }
