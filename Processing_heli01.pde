@@ -30,12 +30,9 @@ void setup() {
     colorMode(RGB,256);
     rectMode(CENTER);
     strokeJoin(ROUND);
-    heli_img = loadImage("image//heli0326.png");
-    rotor_img = loadImage("image//main_rotor.png");
-    rotor_b = loadImage("image//main_rotor02.png");
-    rotor_c = loadImage("image//main_rotor03.png");
     port = new Serial(this, "COM7", 9600);
     p1 = new Heli(width / 2,height - 400,0,heli_img,rotor_img,rotor_b,rotor_c);
+    p1.setup("image//heli0326.png","image//main_rotor.png","image//main_rotor02.png","image//main_rotor03.png");
     weapons = new Weapon[50];
     missles = new Missle[10];
     for (int i = 0;i < 10;i++) {
