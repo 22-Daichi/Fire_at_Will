@@ -20,18 +20,21 @@ class Heli{
     }
     
     void dis(int dx,int dy) {
+
         int w = 220;
         int h = 220;
+        float timesA = 0.1;// リアルスティックでは0.05
+        float timesB = 0.1;// リアルスティックでは0.06
         //int angle = 0;
         if (dx > 120 && x < width) {
-            x += (dx - 120) * 0.05;
+            x += (dx - 120) * timesA;
         } else if (dx < 90 && x > 0) {
-            x -= (100 - dx) * 0.06;
+            x -= (100 - dx) * timesB;
         }
         if (dy > 120 && y < height - 100) {
-            y += (dy - 120) * 0.05;
+            y += (dy - 120) * timesA;
         } else if (dy < 90 && y > 0) {
-            y -= (100 - dy) * 0.06;
+            y -= (100 - dy) * timesB;
         }
         image(img,x - w / 2,y,w,h);
         if (rot < 2) {
