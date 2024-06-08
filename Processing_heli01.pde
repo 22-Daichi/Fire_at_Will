@@ -87,10 +87,10 @@ void draw() {
         fire_weapon1 = port.read();
         fire_missle = port.read();
         restart = port.read();
-        if(p1x == 0 ){
+        if (p1x == 0) {
             p1x = 100;
         }
-        if(p1y == 0 ){
+        if (p1y == 0) {
             p1y = 100;
         }
         p1.dis(p1x,p1y);
@@ -152,30 +152,30 @@ void draw() {
     //time = (floor(time*100))/100;
     text(time,width / 2 + 175,50);
     text(p1x,width / 2 - 125,100);
-    text(p1x,width / 2 +125,100);
-    if(score < 20){
+    text(p1x,width / 2 + 125,100);
+    if (score < 20) {
         time += 0.02;
     }
     rectMode(CORNER);
     noStroke();
     textAlign(LEFT, CENTER);
     textSize(40);
-    if(reloadmissle == 100){
+    if (reloadmissle == 100) {
         fill(0,0,0);
-        text("READY",width-190,height-75);
+        text("READY",width - 190,height - 75);
         fill(0,255,0);
-    }else{
+    } else{
         fill(0,0,0);
-        text("LOADING...",width-190,height-75);
+        text("LOADING...",width - 190,height - 75);
         fill(255,0,0);
     }
-    rect(width-400,height-100,reloadmissle*2,50);
+    rect(width - 400,height - 100,reloadmissle * 2,50);
     stroke(0,0,0);
     strokeWeight(2);
     noFill();
-    rect(width-400,height-100,200,50);
+    rect(width - 400,height - 100,200,50);
     rectMode(CENTER);
-    if(reloadmissle < 100){
+    if (reloadmissle < 100) {
         reloadmissle += 1;
     }
     if (port.available() > 5) {
