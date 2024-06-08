@@ -7,7 +7,7 @@ int t = 0;
 int battle = 0;
 int weapon_num = 0; // 画面上に表示可能な最大の弾の個数
 int missle_num = 0; // 画面上に表示可能な最大のミサイルの個数
-int enemy_number = 20; // 敵の数
+int enemy_number = 10; // 敵の数
 int p1x;
 int p1y;
 int fire_weapon1;
@@ -44,10 +44,11 @@ void setup() {
 }
 
 void top() {
+    background(122, 203, 243);
     p1.x = width / 2;
     p1.y = height - 400;
     for (int i = 0;i < enemy_number;i++) {
-        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,0);
+        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,0,"image//kama.png");
     }
     score = 0;
     time = 0;
@@ -67,11 +68,11 @@ void explosion(float px,float py,int i) {
 }
 
 void draw() {
-    background(122, 203, 243);
     if (restart == 1) {
         top();
     }
     if (port.available() > 0) {
+        background(122, 203, 243);
         p1x = port.read();
         p1y = port.read();
         fire_weapon1 = port.read();
