@@ -4,7 +4,6 @@ Serial port;
 Heli p1;
 
 int t = 0;
-int battle = 0;
 int weapon_num = 0; // 画面上に表示可能な最大の弾の個数
 int missle_num = 0; // 画面上に表示可能な最大のミサイルの個数
 int enemy_number = 10; // 敵の数
@@ -86,7 +85,6 @@ void draw() {
         }
         p1.dis(p1x,p1y);
         if (fire_weapon1 == 1) {
-            battle = 1;
             weapons[weapon_num].wx = p1.x;
             weapons[weapon_num].wy = p1.y;
             weapons[weapon_num].wlife = 1;
@@ -144,7 +142,7 @@ void draw() {
     text(time,width / 2 + 175,50);
     text(p1x,width / 2 - 125,100);
     text(p1y,width / 2 + 125,100);
-    if (score < 20) {
+    if (score < enemy_number) {
         time += 0.02;
     }
     rectMode(CORNER);
