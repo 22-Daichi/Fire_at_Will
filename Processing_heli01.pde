@@ -168,7 +168,4 @@ void draw() {
     if (port.available() > 5) {
         port.clear();
     }
-    if (key == 'e'){
-        exit();
-    }
 }
