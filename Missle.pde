@@ -7,9 +7,15 @@ class Missle{
         mlife = _mlife;
     }
     
+    void openFire(float x,float y) {
+        mx = x;
+        my = y;
+        mlife = 1;
+    }
+    
     void dis() {
-        if (mlife == 1 && my >0) {
-            my -=8;
+        if (mlife == 1 && my > 0) {
+            my -= 8;
             strokeWeight(2);
             fill(255,0,0);
             ellipse(mx,my + 20,20,20);
@@ -18,7 +24,7 @@ class Missle{
             fill(0,0,0);
             rect(mx,my,10,40,5);
         }
-        if (mlife == 0){
+        if (mlife == 0) {
             mx = 0;
             my = 0;
         }

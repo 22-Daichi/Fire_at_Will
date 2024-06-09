@@ -83,19 +83,15 @@ void draw() {
         serialRead();
         p1.dis(p1x,p1y);
         if (fire_weapon1 == 1) {
-            weapons[weapon_num].wx = p1.x;
-            weapons[weapon_num].wy = p1.y;
-            weapons[weapon_num].wlife = 1;
+            weapons[weapon_num].openFire(p1.x,p1.y);
             weapon_num += 1;
             if (weapon_num == 50) {
                 weapon_num = 0;
             }
         }
         if (fire_missle ==  1) {
-            missles[missle_num].mx = p1.x;
-            missles[missle_num].my = p1.y;
-            missles[missle_num].mlife = 1;
-            missle_num += 1;
+            missles[missle_num].openFire(p1.x,p1.y)
+                missle_num += 1;
             reloadmissle = 0;
             if (missle_num == 10) {
                 missle_num = 0;

@@ -9,6 +9,11 @@ class Weapon{
         tgty = _tgty;//追加した。
     }
     
+    void openFire(float x,float y) {
+        wx = x;
+        wy = y;
+        wlife = 1;
+    }
     
     
     void dis() {
@@ -17,7 +22,7 @@ class Weapon{
         ang = PI/2;
     }else{
         ang = atan((wy - tgty)/abs(wx - tgtx));
-        } */
+    } */
         ang = PI / 2;
         if (wlife ==  1 && wy > 0) {
             wy -= 10 * sin(ang);
