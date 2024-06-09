@@ -74,6 +74,40 @@ void serialRead() { // ESP32からシリアルで送られてきたデータを�
     restart = port.read();
 }
 
+void print() {
+    textSize(50);
+    fill(0,0,0);
+    textAlign(CENTER,CENTER);
+    text("スコア:",width / 2 - 225,50);
+    text(score,width / 2 - 125,50);
+    text("タイム:",width / 2 ,50);
+    text(time,width / 2 + 175,50);
+    text(p1x,width / 2 - 125,100);
+    text(p1y,width / 2 + 125,100);
+    if (score < enemy_number) {
+        time += 0.02;
+    }
+    rectMode(CORNER);
+    noStroke();
+    textAlign(LEFT, CENTER);
+    textSize(40);
+    if (reloadmissle == 100) {
+        fill(0,0,0);
+        text("READY",width - 190,height - 75);
+        fill(0,255,0);
+    } else{
+        fill(0,0,0);
+        text("LOADING...",width - 190,height - 75);
+        fill(255,0,0);
+    }
+    rect(width - 400,height - 100,reloadmissle * 2,50);
+    stroke(0,0,0);
+    strokeWeight(2);
+    noFill();
+    rect(width - 400,height - 100,200,50);
+    rectMode(CENTER);
+}
+
 void draw() {
     if (restart == 1) {
         top();
@@ -90,8 +124,8 @@ void draw() {
             }
         }
         if (fire_missle ==  1) {
-            missles[missle_num].openFire(p1.x,p1.y)
-                missle_num += 1;
+            missles[missle_num].openFire(p1.x,p1.y);
+            missle_num += 1;
             reloadmissle = 0;
             if (missle_num == 10) {
                 missle_num = 0;
@@ -126,38 +160,7 @@ void draw() {
             }
         }
     }
-    textSize(50);
-    fill(0,0,0);
-    textAlign(CENTER,CENTER);
-    text("スコア:",width / 2 - 225,50);
-    text(score,width / 2 - 125,50);
-    text("タイム:",width / 2 ,50);
-    //time = (floor(time*100))/100;
-    text(time,width / 2 + 175,50);
-    text(p1x,width / 2 - 125,100);
-    text(p1y,width / 2 + 125,100);
-    if (score < enemy_number) {
-        time += 0.02;
-    }
-    rectMode(CORNER);
-    noStroke();
-    textAlign(LEFT, CENTER);
-    textSize(40);
-    if (reloadmissle == 100) {
-        fill(0,0,0);
-        text("READY",width - 190,height - 75);
-        fill(0,255,0);
-    } else{
-        fill(0,0,0);
-        text("LOADING...",width - 190,height - 75);
-        fill(255,0,0);
-    }
-    rect(width - 400,height - 100,reloadmissle * 2,50);
-    stroke(0,0,0);
-    strokeWeight(2);
-    noFill();
-    rect(width - 400,height - 100,200,50);
-    rectMode(CENTER);
+    print();
     if (reloadmissle < 100) {
         reloadmissle += 1;
     }
