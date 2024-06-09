@@ -66,23 +66,21 @@ void explosion(float px,float py,int i) {
     score += 1;
 }
 
+void serialRead() { // ESP32からシリアルで送られてきたデータを格納
+    p1x = port.read();
+    p1y = port.read();
+    fire_weapon1 = port.read();
+    fire_missle = port.read();
+    restart = port.read();
+}
+
 void draw() {
     if (restart == 1) {
         top();
     }
     if (port.available() > 0) {
         background(122, 203, 243);
-        p1x = port.read();
-        p1y = port.read();
-        fire_weapon1 = port.read();
-        fire_missle = port.read();
-        restart = port.read();
-        if (p1x == 0) {
-            p1x = 100;
-        }
-        if (p1y == 0) {
-            p1y = 100;
-        }
+        serialRead();
         p1.dis(p1x,p1y);
         if (fire_weapon1 == 1) {
             weapons[weapon_num].wx = p1.x;
@@ -169,5 +167,8 @@ void draw() {
     }
     if (port.available() > 5) {
         port.clear();
+    }
+    if (key == 'e'){
+        exit();
     }
 }

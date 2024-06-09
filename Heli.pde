@@ -20,7 +20,12 @@ class Heli{
     }
     
     void dis(int dx,int dy) {
-
+        if (dx == 0) {  // ここからはノイズ対策
+            dx = 100;
+        }
+        if (dy == 0) {
+            dy = 100;
+        }
         int w = 220;
         int h = 220;
         float timesA = 0.1;// リアルスティックでは0.05
