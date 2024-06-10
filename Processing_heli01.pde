@@ -26,7 +26,7 @@ void setup() {
     rectMode(CENTER);
     strokeJoin(ROUND);
     port = new Serial(this, "COM7", 9600);
-    p1 = new Heli(width / 2,height - 400,0);
+    p1 = new Heli(width / 2,height - 400,0,100);
     p1.setup("image//heli0326.png","image//main_rotor.png","image//main_rotor02.png","image//main_rotor03.png");
     weapons = new Weapon[50];
     missles = new Missle[10];

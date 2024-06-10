@@ -2,14 +2,15 @@
 
 class Heli{
     
-    public float x,y,rot;
+    public float x,y,rot,life;
     PImage img,rotor1,rotor2,rotor3;
     //Serial port;
     
-    Heli(float _x,float _y,float _rot) {
+    Heli(float _x,float _y,float _rot,float _life) {
         x = _x;
         y = _y;
         rot = _rot;
+        life = _life;
     }
     
     void setup(String heliImageFileName,String rotor1ImageFileName,String rotor2ImageFileName,String rotor3ImageFileName) {
