@@ -6,14 +6,11 @@ class Heli{
     PImage img,rotor1,rotor2,rotor3;
     //Serial port;
     
-    Heli(float _x,float _y,float _rot,float _life) {
+    Heli(float _x,float _y,float _rot,float _life,String heliImageFileName,String rotor1ImageFileName,String rotor2ImageFileName,String rotor3ImageFileName) {
         x = _x;
         y = _y;
         rot = _rot;
         life = _life;
-    }
-    
-    void setup(String heliImageFileName,String rotor1ImageFileName,String rotor2ImageFileName,String rotor3ImageFileName) {
         img = loadImage(heliImageFileName);
         rotor1 = loadImage(rotor1ImageFileName);
         rotor2 = loadImage(rotor2ImageFileName);
