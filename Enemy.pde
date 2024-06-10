@@ -8,6 +8,9 @@ class Enemy{
     elife = _elife;
     ecount = _ecount;
 } */
+
+
+    // enemyのコンストラクタ。newでインスタンス化するときに初めに実行される。
     Enemy(float _ex,float _ey,float _elife,float _ecount,String _imgName) {
         ex = _ex;
         ey = _ey;
@@ -26,5 +29,6 @@ class Enemy{
         if (elife <= 0) {
             elife = 0;
         }
+        ecount = elife; // ecountにlifeを代入しておく
     }
 }

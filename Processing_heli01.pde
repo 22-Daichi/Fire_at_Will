@@ -46,7 +46,7 @@ void top() {
     p1.x = width / 2;
     p1.y = height - 400;
     for (int i = 0;i < enemy_number;i++) {
-        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,0,"image//kama.png");
+        enemies[i] = new Enemy(int(random(20, width - 20)),int(random(50,300)),5,5,"image//kama.png");
     }
     score = 0;
     time = 0;
@@ -61,7 +61,7 @@ void explosion(float px,float py,int i) {
     enemies[i].ex = 0;
     enemies[i].ey = 0;
     //enemies[i].elife = 0;
-    enemies[i].ecount += 1;
+    //enemies[i].ecount += 1;
     score += 1;
 }
 
@@ -141,7 +141,7 @@ void draw() {
         for (int i = 0;i < 10;i++) {//missle当たり判定
             for (int k = 0;k < enemy_number;k ++) {
                 if (abs(enemies[k].ex - missles[i].mx)<30 && abs(enemies[k].ey - missles[i].my)< 25) {
-                    enemies[k].elife -= 5;
+                    enemies[k].elife -= 10;
                     missles[i].mlife = 0;
                 }
             }
@@ -153,10 +153,10 @@ void draw() {
             missles[i].dis();
         }
         for (int i = 0;i < enemy_number;i++) {
-            enemies[i].dis();
-            if (enemies[i].elife == 0 && enemies[i].ecount == 0) {
+            if (enemies[i].elife <= 0 && enemies[i].ecount > 0) {
                 explosion(enemies[i].ex,enemies[i].ey,i);
             }
+            enemies[i].dis();
         }
     }
     print();
