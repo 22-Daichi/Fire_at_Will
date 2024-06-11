@@ -65,6 +65,8 @@ void explosion(float px,float py,int i) {
     score += 1;
 }
 
+
+
 void serialRead() { // ESP32からシリアルで送られてきたデータを格納
     p1x = port.read();
     p1y = port.read();
@@ -146,11 +148,20 @@ void draw() {
                 }
             }
         }
+        for (int i = 0;i < enemy_number; i++) { // enemyとヘリの接触判定
+            if (abs(enemies[i].ex - p1.x) < 50 && abs(enemies[i].ey - p1.y)< 50) {
+                enemies[i].elife -= 10;
+                p1.life -= 30;
+            }
+        }
         for (int i = 0;i <  50;i ++) {
             weapons[i].dis();
         }
         for (int i = 0; i < 10; i++) {
             missles[i].dis();
+        }
+        if (p1.life <= 0 && p1.previousLife > 0) {
+            p1.explosion();
         }
         for (int i = 0;i < enemy_number;i++) {
             if (enemies[i].elife <= 0 && enemies[i].ecount > 0) {
