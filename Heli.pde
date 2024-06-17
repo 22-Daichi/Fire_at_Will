@@ -59,7 +59,7 @@ class Heli{
             textSize(50);
             fill(0,0,0);
             textAlign(CENTER,CENTER);
-            text(life,x,y + 150);
+            text(life,x,y + 250);
         }
         
     }

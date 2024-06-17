@@ -169,6 +169,13 @@ void draw() {
             }
             enemies[i].dis();
         }
+/*         if (p1.life == 0) {
+            background(122, 203, 243);
+            textSize(300);
+            textAlign(CENTER,CENTER);
+            text("GAME OVER",width / 2 ,height / 2);
+            restart = 1;
+        } */
     }
     print();
     if (reloadmissle < 100) {
